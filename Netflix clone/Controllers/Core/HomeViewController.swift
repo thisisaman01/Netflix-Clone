@@ -46,7 +46,6 @@ class HomeViewController: UIViewController  {
             case .success(let titles):
                 let selectedTitle = titles.randomElement()
                 
-                // ✅ FIXED: Move UI updates to main thread
                 DispatchQueue.main.async {
                     self?.randomTrendingMovie = selectedTitle
                     self?.headerView?.configure(with: TitleViewModel(titleName: selectedTitle?.original_title ?? "", posterURL: selectedTitle?.poster_path ?? ""))
@@ -59,9 +58,7 @@ class HomeViewController: UIViewController  {
     }
 
     private func configureNavbar() {
-        // Fix Netflix logo with proper sizing and positioning
         if let originalImage = UIImage(named: "netflixLogo") {
-            // Create proper size for navigation bar
             let targetSize = CGSize(width: 25, height: 25)
             UIGraphicsBeginImageContextWithOptions(targetSize, false, 0.0)
             originalImage.draw(in: CGRect(origin: .zero, size: targetSize))
@@ -79,7 +76,6 @@ class HomeViewController: UIViewController  {
             navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .done, target: self, action: nil)
         }
         
-        // ✅ ONLY CHANGE: ADD PERSON ICON ACTION
         navigationItem.rightBarButtonItems = [
             UIBarButtonItem(image: UIImage(systemName: "person"), style: .done, target: self, action: #selector(openProfile)),
             UIBarButtonItem(image: UIImage(systemName: "play.rectangle"), style: .done, target: self, action: nil)
@@ -89,7 +85,6 @@ class HomeViewController: UIViewController  {
         updateNavigationBarAppearance()
     }
     
-    // ✅ ADDED: PERSON ICON ACTION
     @objc private func openProfile() {
         let profileViewController = ProfileViewController()
         let navigationController = UINavigationController(rootViewController: profileViewController)
@@ -142,7 +137,6 @@ class HomeViewController: UIViewController  {
     }
 }
 
-// ✅ KEEP YOUR EXACT WORKING TABLE VIEW CODE
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -166,7 +160,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             APICaller.shared.getTrendingMovies { result in
                 switch result {
                 case .success(let titles):
-                    // ✅ FIXED: Move UI updates to main thread
                     DispatchQueue.main.async {
                         cell.configure(with: titles)
                     }
@@ -179,7 +172,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             APICaller.shared.getTrendingTvs { result in
                 switch result {
                 case .success(let titles):
-                    // ✅ FIXED: Move UI updates to main thread
                     DispatchQueue.main.async {
                         cell.configure(with: titles)
                     }
@@ -192,7 +184,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             APICaller.shared.getPopular { result in
                 switch result {
                 case .success(let titles):
-                    // ✅ FIXED: Move UI updates to main thread
                     DispatchQueue.main.async {
                         cell.configure(with: titles)
                     }
@@ -205,7 +196,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             APICaller.shared.getUpcomingMovies { result in
                 switch result {
                 case .success(let titles):
-                    // ✅ FIXED: Move UI updates to main thread
                     DispatchQueue.main.async {
                         cell.configure(with: titles)
                     }
@@ -218,7 +208,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             APICaller.shared.getTopRated { result in
                 switch result {
                 case .success(let titles):
-                    // ✅ FIXED: Move UI updates to main thread
                     DispatchQueue.main.async {
                         cell.configure(with: titles)
                     }
@@ -247,7 +236,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         header.textLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
         header.textLabel?.frame = CGRect(x: header.bounds.origin.x + 20, y: header.bounds.origin.y, width: 100, height: header.bounds.height)
         
-        // Use label color that automatically adapts to light/dark mode
         header.textLabel?.textColor = .label
         
         header.textLabel?.text = header.textLabel?.text?.capitalizeFirstLetter()
@@ -275,7 +263,6 @@ extension HomeViewController: CollectionViewTableViewCellDelegate {
     }
 }
 
-// ✅ ADDED: CALENDAR FUNCTIONALITY (WITHOUT TOUCHING YOUR WORKING API CODE)
 extension HomeViewController {
     
     func showMovieReminderOptions(for movieTitle: String) {
