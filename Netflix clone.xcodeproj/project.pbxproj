@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -63,6 +63,11 @@
 		99AC0BE22A935401001419A5 /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
 		99B02CD52DEB0227005684D6 /* PersistanceDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		99B02CD72DEB18B4005684D6 /* Calender events */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Calender events"; sourceTree = "<group>"; };
+		99B02CDC2DEB1940005684D6 /* Calender enhancements */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Calender enhancements"; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		99AC0BC12A934484001419A5 /* Frameworks */ = {
@@ -166,6 +171,7 @@
 		99AC0BC62A934484001419A5 /* Netflix clone */ = {
 			isa = PBXGroup;
 			children = (
+				99B02CDC2DEB1940005684D6 /* Calender enhancements */,
 				993462C82AA8914E00451305 /* Managers */,
 				993462C72AA8913700451305 /* Resources */,
 				993462C62AA890BC00451305 /* Models */,
@@ -183,6 +189,7 @@
 		99AC0BDB2A9352E6001419A5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				99B02CD72DEB18B4005684D6 /* Calender events */,
 				993996082AB62C5900A22B68 /* General */,
 				993996072AB62C1900A22B68 /* Core */,
 			);
@@ -203,6 +210,10 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				99B02CD72DEB18B4005684D6 /* Calender events */,
+				99B02CDC2DEB1940005684D6 /* Calender enhancements */,
 			);
 			name = "Netflix clone";
 			packageProductDependencies = (

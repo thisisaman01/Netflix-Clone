@@ -18,11 +18,52 @@
                 </dict>
             </array>
         </dict>
+        
+         <!-- Calendar Access Permission -->
+         <key>NSCalendarsUsageDescription</key>
+         <string>Netflix Clone needs calendar access to create watch reminders for your favorite movies and shows.</string>
+         
+         <!-- Reminders Access Permission (optional, for enhanced functionality) -->
+         <key>NSRemindersUsageDescription</key>
+         <string>Netflix Clone can create reminders for your watch list.</string>
+         
+         <!-- URL Schemes to detect and open other calendar apps -->
+         <key>LSApplicationQueriesSchemes</key>
+         <array>
+             <string>calshow</string>
+             <string>calendar</string>
+             <string>googlecalendar</string>
+             <string>outlook</string>
+             <string>fantastical2</string>
+             <string>x-dispatch</string>
+         </array>
+         
+         <!-- Optional: Custom URL scheme for your app -->
+         <key>CFBundleURLTypes</key>
+         <array>
+             <dict>
+                 <key>CFBundleURLName</key>
+                 <string>com.yourcompany.netflixclone</string>
+                 <key>CFBundleURLSchemes</key>
+                 <array>
+                     <string>netflixclone</string>
+                 </array>
+             </dict>
+         </array>
+         
+         <!-- Background App Refresh for notifications -->
+         <key>UIBackgroundModes</key>
+         <array>
+             <string>background-processing</string>
+             <string>background-fetch</string>
+         </array>
     </dict>
     <key>NSAppTransportSecurity</key>
     <dict>
         <key>NSAllowsArbitraryLoads</key>
         <true/>
+        <key>NSCalendarsUsageDescription</key>
+        <string>This app needs calendar access to set watch reminders for your favorite movies and shows.</string>
     </dict>
 </dict>
 </plist>
