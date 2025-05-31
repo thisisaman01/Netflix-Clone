@@ -12,7 +12,7 @@
 
 
 import UIKit
-import SDWebImage  // Add this import for sd_setImage
+import SDWebImage 
 
 class HeroHeaderUIView: UIView {
     
@@ -27,7 +27,6 @@ class HeroHeaderUIView: UIView {
         button.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
         button.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         
-        // Add shadow for better visibility
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOffset = CGSize(width: 0, height: 2)
         button.layer.shadowOpacity = 0.7
@@ -45,7 +44,6 @@ class HeroHeaderUIView: UIView {
         button.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
         button.backgroundColor = UIColor.white
         
-        // Add shadow for better visibility
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOffset = CGSize(width: 0, height: 2)
         button.layer.shadowOpacity = 0.7
@@ -88,7 +86,6 @@ class HeroHeaderUIView: UIView {
         
         let gradientLayer = CAGradientLayer()
         
-        // Create a stronger, more visible gradient that works in both modes
         gradientLayer.colors = [
             UIColor.clear.cgColor,
             UIColor.black.withAlphaComponent(0.1).cgColor,
@@ -127,7 +124,6 @@ class HeroHeaderUIView: UIView {
             let impactFeedback = UIImpactFeedbackGenerator(style: .medium)
             impactFeedback.impactOccurred()
             
-            // Find the view controller to present the reminder options
             if let viewController = findViewController() as? HomeViewController {
                 let movieTitle = titleLabel.text ?? "Featured Content"
                 viewController.showMovieReminderOptions(for: movieTitle)
